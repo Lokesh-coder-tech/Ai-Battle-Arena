@@ -1,5 +1,5 @@
 // services/aiService.js
-const BACKEND_URL = "http://localhost:3000";
+const BACKEND_URL = "https://ai-battle-arena-ga3o.vercel.app/";
 
 export async function getBattleData(prompt) {
   try {
