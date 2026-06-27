@@ -1,0 +1,265 @@
+.navWrapper {
+  position: fixed;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.navContainer {
+  width: 100%;
+  max-width: 84.375rem; /* 1350px */
+  height: 4.5rem; /* 72px */
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(9, 9, 11, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0px rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s ease;
+}
+
+/* BRANDING */
+.brandSection {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.logoIcon {
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logoIcon::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 0.8125rem;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  z-index: -1;
+  opacity: 0.3;
+  filter: blur(6px);
+}
+
+.zapIcon {
+  color: #ffffff;
+}
+
+.title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(0.95rem, 2vw, 1rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.72rem;
+  color: #a1a1aa;
+  letter-spacing: -0.01em;
+}
+
+/* LINKS */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLinkItem {
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navLinkItem:hover {
+  color: #ffffff;
+}
+
+.navLinkItem::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navLinkItem:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ACTIONS */
+.actionSection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.statusText {
+  color: #22c55e;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.iconButton {
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  color: #a1a1aa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iconButton:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.primaryButton {
+  border: none;
+  cursor: pointer;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.75rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: #ffffff;
+  color: #09090b;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.primaryButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+  background: #f4f4f5;
+}
+
+.primaryButton:active {
+  transform: translateY(0);
+}
+
+.hamburgerButton {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.mobileActionButton {
+  display: none;
+}
+
+/* RESPONSIVENESS ARCHITECTURE */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(9, 9, 11, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+  }
+
+  .navLinksOpen {
+    display: flex;
+    animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .navLinkItem {
+    width: 100%;
+    font-size: 1.05rem;
+    padding: 0.5rem 0;
+  }
+
+  .hamburgerButton {
+    display: block;
+  }
+
+  .statusBadge, .iconButton, .primaryButton {
+    display: none; /* Safely hides complex secondary CTAs to leave breathing room */
+  }
+
+  .mobileActionButton {
+    display: block;
+    width: 100%;
+    padding: 0.875rem;
+    border-radius: 0.75rem;
+    border: none;
+    background: linear-gradient(135deg, #7c3aed, #3b82f6);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

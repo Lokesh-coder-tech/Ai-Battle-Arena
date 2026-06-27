@@ -1,0 +1,191 @@
+.arenaWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 48rem; /* 768px - Sweet spot for text input readability */
+}
+
+.inputGlassCard {
+  background: rgba(17, 24, 39, 0.4);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.25rem;
+  padding: 0.25rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.inputGlassCard:focus-within {
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.4), 
+              0 30px 60px -15px rgba(0, 0, 0, 0.7),
+              0 0 40px -10px rgba(59, 130, 246, 0.15);
+}
+
+/* WORKSPACE */
+.textareaContainer {
+  background: rgba(9, 9, 11, 0.3);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.inputLabel {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a1a1aa;
+  margin-bottom: 0.75rem;
+}
+
+.premiumTextarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  min-height: 6.25rem; /* 100px */
+  max-height: 13.75rem; /* 220px */
+}
+
+.premiumTextarea::placeholder {
+  color: #52525b;
+}
+
+.premiumTextarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* TOOLBAR */
+.actionToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem 0.75rem 1.5rem;
+  gap: 1rem;
+}
+
+.metaInformation {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #71717a;
+}
+
+.kbdKey {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 0.125rem 0.375rem;
+  font-size: 0.7rem;
+  color: #a1a1aa;
+}
+
+.divider {
+  color: #3f3f46;
+}
+
+.counter {
+  font-variant-numeric: tabular-nums;
+}
+
+/* SUBMIT BUTTON */
+.submitButton {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  color: #09090b;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #f4f4f5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.02);
+  color: #52525b;
+  cursor: not-allowed;
+}
+
+/* MICRO INTERACTIONS */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+.swordsIcon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.submitButton:hover .swordsIcon {
+  transform: rotate(-15deg) scale(1.05);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVENESS ARCHITECTURE */
+@media (max-width: 480px) {
+  .actionToolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .metaInformation {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .shortcutHint {
+    display: none; /* Hide keyboard shortcuts on touch devices */
+  }
+
+  .submitButton {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+}
