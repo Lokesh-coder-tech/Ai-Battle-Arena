@@ -14,25 +14,21 @@ export async function getBattleData(prompt) {
     const data = await response.json();
     const res = data.result;
 
-    // Determine winner based on scores
-    const modelAScore = res.judge?.solution_1_score || 0;
-    const modelBScore = res.judge?.solution_2_score || 0;
-    
-    let winner = 'Tie';
-    if (modelAScore > modelBScore) winner = 'modelA';
-    if (modelBScore > modelAScore) winner = 'modelB';
+    // Safety fallback checking if the backend result or judge object is entirely missing
+    if (!res || !res.judge) {
+      console.warn("Warning: Backend run finished but 'judge' or 'result' configuration was empty.");
+    }
 
     return {
-      modelA: res.solution_1 || "No response from Model A",
-      modelB: res.solution_2 || "No response from Model B",
+      modelA: res?.solution_1 || "No response from Model A",
+      modelB: res?.solution_2 || "No response from Model B",
+      
+      // Match the exact flat property keys expected by your UI component views
       verdict: {
-        winner: winner,
-        scores: {
-          modelA: modelAScore,
-          modelB: modelBScore,
-        },
-        explanation: res.judge?.explanation || `Model A scored ${modelAScore}/10, Model B scored ${modelBScore}/10`,
-        reasoning: res.judge?.explanation || `The judge evaluated both responses based on accuracy, clarity, and helpfulness.`,
+        solution_1_score: res?.judge?.solution_1_score ?? 0,
+        solution_2_score: res?.judge?.solution_2_score ?? 0,
+        solution_1_reasoning: res?.judge?.solution_1_reasoning || "No analytics compiled for Solution 1.",
+        solution_2_reasoning: res?.judge?.solution_2_reasoning || "No analytics compiled for Solution 2.",
       }
     };
   } catch (error) {

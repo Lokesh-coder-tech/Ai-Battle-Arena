@@ -1,0 +1,321 @@
+.modelsPageWrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px 0;
+}
+
+.pageSubtitle {
+  color: #8a8f98;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.closePageBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closePageBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive Structural Layout Grid */
+.modelsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+/* Glassmorphism Showcase Card Styling */
+.modelGlassCard {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease;
+}
+
+.modelGlassCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.profileBox {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.iconFrame {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modelName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 2px 0;
+}
+
+.providerMeta {
+  font-size: 0.8rem;
+  color: #626770;
+}
+
+.internalDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 20px 0;
+  width: 100%;
+}
+
+/* Dynamic Accent Role Tags */
+.roleBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.badgePurple { background: rgba(168, 85, 247, 0.08); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.15); }
+.badgeBlue { background: rgba(59, 130, 246, 0.08); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.15); }
+.badgeGold { background: rgba(234, 179, 8, 0.08); color: #fde047; border: 1px solid rgba(234, 179, 8, 0.15); }
+
+.iconPurple { color: #c084fc; filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.3)); }
+.iconBlue { color: #60a5fa; filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3)); }
+.iconGold { color: #fde047; filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.3)); }
+
+/* Description Typography Block */
+.descriptionSection {
+  min-height: 72px;
+  margin-bottom: 20px;
+}
+
+.descriptionText {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Component Spec Sub-Grid Layout Frame */
+.specsSubGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  margin-bottom: 20px;
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.specLabel {
+  font-size: 0.72rem;
+  color: #4b5563;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.specValue {
+  font-size: 0.85rem;
+  color: #e5e7eb;
+  font-weight: 500;
+}
+
+/* Card Status Footer Row */
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 16px;
+  margin-top: auto;
+  font-size: 0.8rem;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #8a8f98;
+}
+
+.successCheck {
+  color: #22c55e;
+}
+
+.secureBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+/* Bottom Actions Banner Layout Box */
+.actionBanner {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.bannerText h3 {
+  color: #ffffff;
+  font-size: 1.25rem;
+  margin: 0 0 6px 0;
+}
+
+.bannerText p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.arenaLaunchBtn {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.arenaLaunchBtn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* --- ADAPTIVE RESPONSIVE FRAMEWORK BREAKPOINTS --- */
+
+@media (max-width: 960px) {
+  .actionBanner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+  .arenaLaunchBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .modelsPageWrapper {
+    padding: 24px 16px;
+  }
+  .pageTitle {
+    font-size: 1.65rem;
+  }
+  .modelsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 16px;
+  }
+  .modelGlassCard {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .closePageBtn {
+    width: 100%;
+  }
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .roleBadge {
+    align-self: flex-start;
+  }
+  .specsSubGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}

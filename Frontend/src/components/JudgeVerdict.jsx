@@ -97,10 +97,13 @@ function SkeletonCard() {
 export default function JudgeVerdict({ verdict, isLoading }) {
   if (!verdict && !isLoading) return null;
 
-  const score1 = verdict?.solution_1_score ?? 0;
-  const score2 = verdict?.solution_2_score ?? 0;
-  const isWinner1 = score1 >= score2;
-  const isWinner2 = score2 > score1;
+
+const score1 = verdict?.solution_1_score ?? 0;
+const score2 = verdict?.solution_2_score ?? 0;
+
+const hasScores = score1 > 0 || score2 > 0;
+const isWinner1 = hasScores && score1 >= score2;
+const isWinner2 = hasScores && score2 > score1;
 
   return (
     <div className={styles.verdictSectionWrapper}>

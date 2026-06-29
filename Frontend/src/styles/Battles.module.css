@@ -1,0 +1,297 @@
+/* Container Architecture */
+.fullHistoryPage {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  animation: fadeIn 0.4s ease-out;
+  box-sizing: border-box;
+}
+
+/* Header Panel Section */
+.historyPageHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px 0;
+}
+
+.pageSubtitle {
+  color: #8a8f98;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.closePageBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.closePageBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive Grid Architecture */
+.ledgerBigGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Premium Glassmorphism Cards */
+.premiumLedgerCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 190px;
+  box-sizing: border-box;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.2s ease, 
+              background-color 0.2s ease;
+}
+
+.premiumLedgerCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ledgerCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.timeTag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #626770;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.ledgerCardPrompt {
+  color: #e1e4ea;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ledgerCardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+.scoresRowSummary {
+  font-size: 0.85rem;
+  color: #8a8f98;
+}
+
+.openDetailsLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 500;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.premiumLedgerCard:hover .openDetailsLink {
+  opacity: 1;
+}
+
+.premiumLedgerCard:hover .openDetailsLink svg {
+  transform: translateX(2px);
+}
+
+.openDetailsLink svg {
+  transition: transform 0.2s ease;
+}
+
+/* Winner Status Indicators */
+.winnerBadgeIndicator {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.winnerPurple { background: rgba(168, 85, 247, 0.1); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.2); }
+.winnerBlue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
+.winnerTie { background: rgba(255, 255, 255, 0.05); color: #8a8f98; border: 1px solid rgba(255, 255, 255, 0.1); }
+
+.textPurple { color: #a855f7; font-weight: 700; }
+.textBlue { color: #3b82f6; font-weight: 700; }
+
+/* Empty Workspace States Layout */
+.emptyHistoryState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  max-width: 480px;
+  margin: 40px auto 0 auto;
+  box-sizing: border-box;
+}
+
+.emptyIconContainer {
+  width: 72px;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.emptyIcon {
+  color: #4a4f5a;
+}
+
+.emptyHistoryState h3 {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.emptyHistoryState p {
+  color: #8a8f98;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+}
+
+.primaryActionBtn {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.primaryActionBtn:hover {
+  opacity: 0.9;
+  transform: scale(0.98);
+}
+
+/* --- RESPONSIVE MEDIA BREAKPOINTS --- */
+
+/* Tablet Layouts (Under 768px) */
+@media (max-width: 768px) {
+  .fullHistoryPage {
+    padding: 24px 16px;
+  }
+
+  .historyPageHeader {
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+  }
+
+  .pageTitle {
+    font-size: 1.65rem;
+  }
+
+  .ledgerBigGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .premiumLedgerCard {
+    padding: 16px;
+    min-height: 170px;
+  }
+}
+
+/* Mobile Devices (Under 520px) */
+@media (max-width: 520px) {
+  .historyPageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .closePageBtn {
+    width: 100%; /* Spans full width on phone inputs */
+    padding: 12px;
+  }
+
+  .ledgerBigGrid {
+    grid-template-columns: 1fr; /* Stack card blocks into a uniform layout row */
+    gap: 14px;
+  }
+
+  .ledgerCardHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .winnerBadgeIndicator {
+    align-self: flex-start;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}

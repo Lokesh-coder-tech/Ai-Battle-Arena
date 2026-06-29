@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Zap, Menu, X } from "lucide-react";
 import styles from "../styles/Navbar.module.css";
 
-const Navbar = ({ onNewBattle }) => {
+const Navbar = ({ onNewBattle, onShowBattles, onShowModels, onShowLeaderboard, onShowArena, currentView }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -11,8 +11,12 @@ const Navbar = ({ onNewBattle }) => {
     <nav className={styles.navWrapper} aria-label="Main Navigation">
       <div className={styles.navContainer}>
         
-        {/* LEFT: Branding */}
-        <div className={styles.brandSection}>
+        {/* LEFT: Branding Section */}
+        <div 
+          className={styles.brandSection} 
+          onClick={onShowArena} 
+          style={{ cursor: "pointer" }}
+        >
           <div className={styles.logoIcon} aria-hidden="true">
             <Zap size={18} className={styles.zapIcon} />
           </div>
@@ -24,39 +28,67 @@ const Navbar = ({ onNewBattle }) => {
 
         {/* CENTER: Navigation Links */}
         <div className={`${styles.navLinks} ${isOpen ? styles.navLinksOpen : ""}`}>
-          {["Battles", "Leaderboard", "Models", "Community"].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className={styles.navLinkItem}>
-              {item}
-            </a>
-          ))}
-          {/* Mobile Only Action */}
-          <button onClick={() => { onNewBattle(); setIsOpen(false); }} className={styles.mobileActionButton}>
+          
+          {/* Explicit Arena Link */}
+          <button 
+            onClick={() => { onShowArena(); setIsOpen(false); }} 
+            className={`${styles.navLinkItem} ${currentView === "arena" ? styles.activeLink : ""}`}
+            style={{ background: "none", border: "none", textAlign: "left", cursor: "pointer" }}
+          >
+            Arena
+          </button>
+
+          {/* Core Menu Layout Map */}
+          {["Battles", "Leaderboard", "Models"].map((item) => {
+            const isBattles = item === "Battles";
+            const isLeaderboard = item === "Leaderboard";
+            const isModels = item === "Models";
+            
+            // Check dynamic view states to assign highlight anchors
+            const isActive = 
+              (isBattles && currentView === "history_page") || 
+              (isLeaderboard && currentView === "leaderboard_page") ||
+              (isModels && currentView === "models_page");
+
+            return (
+              <button 
+                key={item} 
+                onClick={() => {
+                  if (isBattles) onShowBattles();
+                  else if (isLeaderboard) onShowLeaderboard();
+                  else if (isModels) onShowModels();
+                  setIsOpen(false);
+                }} 
+                className={`${styles.navLinkItem} ${isActive ? styles.activeLink : ""}`}
+                style={{ background: "none", border: "none", textAlign: "left", cursor: "pointer" }}
+                disabled={!isBattles && !isLeaderboard && !isModels} // Community remains placeholder
+              >
+                {item}
+              </button>
+            );
+          })}
+
+          {/* Mobile Overlay Action Trigger */}
+          <button 
+            onClick={() => { onNewBattle(); setIsOpen(false); }} 
+            className={styles.mobileActionButton}
+          >
             Start Battle
           </button>
         </div>
 
-        {/* RIGHT: System Status & Primary CTAs */}
+        {/* RIGHT: Status Indicator & Action CTA */}
         <div className={styles.actionSection}>
           <div className={styles.statusBadge}>
             <span className={styles.statusDot} />
             <span className={styles.statusText}>LIVE</span>
           </div>
 
-          {/* <a 
-            href="https://github.com" 
-            target="_blank" 
-            rel="noreferrer" 
-            className={styles.iconButton} 
-            aria-label="View Github Repository"
-          >
-            <Github size={18} />
-          </a> */}
-
           <button onClick={onNewBattle} className={styles.primaryButton}>
             Start Battle
           </button>
 
-          {/* Hamburger Menu Toggle */}
+          {/* Responsive Hamburger Toggle Menu */}
           <button 
             className={styles.hamburgerButton} 
             onClick={toggleMenu} 
