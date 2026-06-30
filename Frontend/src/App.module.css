@@ -320,8 +320,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  display: -webkit-box;
   -webkit-box-orient: vertical;
+  line-clamp: 2;
+  
 }
 
 .historyCardFooter {
