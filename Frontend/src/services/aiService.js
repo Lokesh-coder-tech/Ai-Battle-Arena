@@ -1,5 +1,5 @@
 // services/aiService.js
-const BACKEND_URL = "http://localhost:3000"; // Update this if your backend is hosted elsewhere
+const BACKEND_URL = "https://ai-battle-arena-vz1h.onrender.com"; // Update this if your backend is hosted elsewhere
 
 export async function getBattleData(prompt) {
   try {
