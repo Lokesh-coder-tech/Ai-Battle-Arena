@@ -146,15 +146,16 @@ GOOGLE_API_KEY=YOUR_KEY
 
 ---
 
-# 📷 Screenshots
+## 📸 Screenshots
 
-Add your screenshots here.
+### Home Page
+![Home](assets/home.png)
 
-```
-assets/home.png
-assets/battle.png
-assets/result.png
-```
+### Battle Page
+![Battle](assets/battle.png)
+
+### Result Page
+![Result](assets/result.png)
 
 ---
 
