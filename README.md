@@ -142,7 +142,7 @@ COHERE_API_KEY=YOUR_KEY
 GOOGLE_API_KEY=YOUR_KEY
 ```
 
-> Never commit real API keys.
+> Replace the placeholder values with your own API keys before running the project.
 
 ---
 
@@ -188,7 +188,7 @@ Contributions are welcome.
 **Lokesh Sharma**
 
 - GitHub: https://github.com/Lokesh-coder-tech
-- LinkedIn: *(Add your profile)*
+- LinkedIn: www.linkedin.com/in/lokeshsharma-dev
 
 ---
 
