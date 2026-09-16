@@ -16,15 +16,28 @@ const state = new StateSchema({
 });
 
 const solutionNode: GraphNode<typeof state> = async (state) => {
-  const [mistralResponse, cohereResponse] = await Promise.all([
-    mistralModel.invoke(state.problem),
-    cohereModel.invoke(state.problem),
-  ]);
+  try {
+    console.log("🚀 Starting Mistral...");
+    
+    const mistralResponse = await mistralModel.invoke(state.problem);
 
-  return {
-    solution_1: mistralResponse.text,
-    solution_2: cohereResponse.text,
-  };
+    console.log("✅ Mistral succeeded");
+
+    console.log("🚀 Starting Cohere...");
+
+    const cohereResponse = await cohereModel.invoke(state.problem);
+
+    console.log("✅ Cohere succeeded");
+
+    return {
+      solution_1: mistralResponse.text,
+      solution_2: cohereResponse.text,
+    };
+
+  } catch (error) {
+    console.error("❌ SOLUTION NODE FAILED:", error);
+    throw error;
+  }
 };
 
 const judgeNode: GraphNode<typeof state> = async (state) => {
