@@ -1,6 +1,6 @@
 import { StateGraph, StateSchema, START, END, type GraphNode } from "@langchain/langgraph"
 import z from "zod";
-import { geminiModel, mistralModel, cohereModel } from "./model.ai.js";
+import { geminiModel, groqModel, cohereModel } from "./model.ai.js";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages"; // Ensure correct imports
 
 const state = new StateSchema({
@@ -17,11 +17,11 @@ const state = new StateSchema({
 
 const solutionNode: GraphNode<typeof state> = async (state) => {
   try {
-    console.log("🚀 Starting Mistral...");
+    console.log("🚀 Starting Groq...");
     
-    const mistralResponse = await mistralModel.invoke(state.problem);
+    const groqResponse = await groqModel.invoke(state.problem);
 
-    console.log("✅ Mistral succeeded");
+    console.log("✅ Groq succeeded");
 
     console.log("🚀 Starting Cohere...");
 
@@ -30,7 +30,7 @@ const solutionNode: GraphNode<typeof state> = async (state) => {
     console.log("✅ Cohere succeeded");
 
     return {
-      solution_1: mistralResponse.text,
+      solution_1: groqResponse.text,
       solution_2: cohereResponse.text,
     };
 
